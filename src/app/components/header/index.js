@@ -1,7 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { loginAction } from '@/actions';
 
 const Header = () => {
+    async function handleOauthSignIn() {
+        await loginAction()
+        
+    }
   return (
     <header className="bg-gray-800 text-white shadow-md">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -43,11 +48,12 @@ const Header = () => {
             </svg>
           </div>
           {/* Login button */}
-          <Link href="/login">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-all duration-300 shadow-md transform hover:scale-105">
+          <form action={handleOauthSignIn}>
+
+            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-all duration-300 shadow-md transform hover:scale-105">
               Login
             </button>
-          </Link>
+          </form>
         </div>
       </div>
     </header>

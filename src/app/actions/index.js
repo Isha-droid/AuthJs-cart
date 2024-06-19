@@ -1,5 +1,8 @@
 "use server";
 
+import { signIn, signOut } from "../../auth";
+
+
 export async function fetchAllProducts() {
     try {
         // Define the URL for the GET request
@@ -33,3 +36,12 @@ export async function fetchAllProducts() {
         };
     }
 }
+export async function loginAction() {
+    await signIn('github');
+    
+}
+export async function logoutAction() {
+    await signOut();
+    
+}
+
