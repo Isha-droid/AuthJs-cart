@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CommanLayout from "./components/comman-layout";
+import SessionWrapper from "./components/sessionWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,11 +12,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <SessionWrapper>
+
       <body className={inter.className}>
          <CommanLayout>
         {children}
          </CommanLayout>
         </body>
+      </SessionWrapper>
     </html>
   );
 }
